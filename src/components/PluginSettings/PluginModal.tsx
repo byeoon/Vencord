@@ -184,12 +184,14 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
         <ModalRoot transitionState={transitionState} size={ModalSize.MEDIUM} className="vc-text-selectable">
             <ModalHeader separator={false}>
                 <Text variant="heading-lg/semibold" style={{ flexGrow: 1 }}>{plugin.name}</Text>
+                <br></br>
                 <ModalCloseButton onClick={onClose} />
             </ModalHeader>
+            <Forms.FormDivider></Forms.FormDivider>
             <ModalContent>
+
                 <Forms.FormSection>
-                    <Forms.FormTitle tag="h3">About {plugin.name}</Forms.FormTitle>
-                    <Forms.FormText>{plugin.description}</Forms.FormText>
+                    <Text>{plugin.description}</Text>
                     <Forms.FormTitle tag="h3" style={{ marginTop: 8, marginBottom: 0 }}>Authors</Forms.FormTitle>
                     <div style={{ width: "fit-content", marginBottom: 8 }}>
                         <UserSummaryItem

@@ -6,6 +6,7 @@
     height: 100%;
     padding: 12px;
     width: 100%;
+    border: 1px solid #34384d;
     transition: 0.1s ease-out;
     transition-property: box-shadow, transform, background, opacity;
     box-sizing: border-box;
@@ -57,6 +58,10 @@
 
 .vc-addon-author {
     font-size: 0.8em;
+}
+
+.vc-addon-author::after[data-content^="byeoon" i] {
+    color: #84b8e9
 }
 
 .vc-addon-author::before {
