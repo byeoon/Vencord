@@ -115,7 +115,7 @@ export default definePlugin({
             },
             {
                 section: "VencordCloud",
-                label: "Cloud & Backup/Restore",
+                label: "Cloud & Backup",
                 element: CloudTab,
                 className: "vc-cloud"
             },

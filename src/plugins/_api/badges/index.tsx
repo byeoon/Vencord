@@ -147,14 +147,14 @@ export default definePlugin({
                                 <Flex>
                                     <img
                                         role="presentation"
-                                        src="https://cdn.discordapp.com/emojis/1026533070955872337.png"
-                                        alt=""
+                                        src="https://cdn.discordapp.com/emojis/1234931937819230278.webp?size=128&quality=lossless"
+                                        alt="byon bleehe"
                                         style={{ margin: "auto" }}
                                     />
                                     <img
                                         role="presentation"
-                                        src="https://cdn.discordapp.com/emojis/1026533090627174460.png"
-                                        alt=""
+                                        src="https://cdn.discordapp.com/emojis/1236034576158294047.webp?size=128&quality=lossless"
+                                        alt="awo GSAP!!"
                                         style={{ margin: "auto" }}
                                     />
                                 </Flex>
