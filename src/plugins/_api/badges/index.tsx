@@ -62,7 +62,7 @@ async function loadByonBadges(noCache = false) {
     if (noCache)
         init.cache = "no-cache";
 
-    DonorBadges = await fetch("https://badges.vencord.dev/badges.json", init)
+    DonorBadges = await fetch("https://raw.githubusercontent.com/byeoon/byoncord/byoncord-main/byoncordContributors.json", init)
         .then(r => r.json());
 }
 
