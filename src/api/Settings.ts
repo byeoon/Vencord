@@ -34,6 +34,7 @@ export interface Settings {
     useQuickCss: boolean;
     enableReactDevtools: boolean;
     themeLinks: string[];
+    tabPlacement: boolean;
     enabledThemes: string[];
     frameless: boolean;
     transparent: boolean;
@@ -83,6 +84,7 @@ const DefaultSettings: Settings = {
     themeLinks: [],
     enabledThemes: [],
     enableReactDevtools: false,
+    tabPlacement: false,
     frameless: false,
     transparent: false,
     winCtrlQ: false,

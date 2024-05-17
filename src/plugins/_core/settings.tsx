@@ -17,7 +17,6 @@
 */
 
 import { Settings } from "@api/Settings";
-import BackupAndRestoreTab from "@components/VencordSettings/BackupAndRestoreTab";
 import CloudTab from "@components/VencordSettings/CloudTab";
 import PatchHelperTab from "@components/VencordSettings/PatchHelperTab";
 import PluginsTab from "@components/VencordSettings/PluginsTab";
@@ -119,12 +118,6 @@ export default definePlugin({
                 element: CloudTab,
                 className: "vc-cloud"
             },
-            //{
-            //  section: "VencordSettingsSync",
-            //label: "Backup & Restore",
-            //element: BackupAndRestoreTab,
-            //className: "vc-backup-restore"
-            // },
             IS_DEV && {
                 section: "VencordPatchHelper",
                 label: "Patch Helper",

@@ -159,7 +159,9 @@ function CloudTab() {
                 <Forms.FormDivider className={Margins.top16} />
             </Forms.FormSection >
             <SettingsSyncSection />
-            <SettingsTab title="Backup & Restore">
+            <Forms.FormDivider className={Margins.top16} />
+
+            <SettingsTab title="Local Backup & Restore">
                 <Card className={classes("vc-settings-card", "vc-backup-restore-card")}>
                     <Flex flexDirection="column">
                         <strong>Warning</strong>

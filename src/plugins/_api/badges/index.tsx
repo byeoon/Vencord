@@ -139,7 +139,7 @@ export default definePlugin({
                                         }}
                                     >
                                         <Heart />
-                                        Vencord Donor
+                                        Byoncord Supporter / Vencord Donor
                                     </Forms.FormTitle>
                                 </Flex>
                             </Modals.ModalHeader>
@@ -160,7 +160,7 @@ export default definePlugin({
                                 </Flex>
                                 <div style={{ padding: "1em" }}>
                                     <Forms.FormText>
-                                        This Badge is a special perk for Vencord Donors
+                                        This Badge is a special perk for Vencord Donors / Byoncord Supporters
                                     </Forms.FormText>
                                     <Forms.FormText className={Margins.top20}>
                                         Please consider supporting the development of Vencord by becoming a donor. It would mean a lot!!
