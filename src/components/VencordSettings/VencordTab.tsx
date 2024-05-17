@@ -316,7 +316,7 @@ function DonateCard({ image }: DonateCardProps) {
                 role="presentation"
                 src={image}
                 alt=""
-                height={256}
+                height={128}
                 style={{
                     imageRendering: image === SHIGGY_DONATE_IMAGE ? "pixelated" : void 0,
                     marginLeft: "auto",
