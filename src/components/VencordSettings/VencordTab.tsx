@@ -109,16 +109,16 @@ function VencordSettings() {
                             onClick={() => VencordNative.quickCss.openEditor()}
                             size={Button.Sizes.SMALL}
                             disabled={settingsDir === "Loading..."}>
-                            Open QuickCSS File
+                            Open QuickCSS
                         </Button>
-                        {!IS_WEB && (
-                            <Button
-                                onClick={() => showItemInFolder(settingsDir)}
-                                size={Button.Sizes.SMALL}
-                                disabled={settingsDirPending}>
-                                Open Settings Folder
-                            </Button>
-                        )}
+                        {!IS_WEB // && (
+                            //   <Button
+                            //       onClick={() => showItemInFolder(settingsDir)}
+                            //       size={Button.Sizes.SMALL}
+                            //       disabled={settingsDirPending}>
+                            //</React.Fragment>        Open Settings Folder
+                            //    </Button> )
+                        }
                         <Button
                             onClick={() => VencordNative.native.openExternal("https://github.com/byeoon/byoncord")}
                             size={Button.Sizes.SMALL}
@@ -308,8 +308,8 @@ function DonateCard({ image }: DonateCardProps) {
     return (
         <Card className={cl("card", "donate")}>
             <div>
-                <Forms.FormTitle tag="h5">Support Byoncord Development!!</Forms.FormTitle>
-                <Forms.FormText>Please consider supporting the development of Byoncord by donating!</Forms.FormText>
+                <Forms.FormTitle tag="h5">Support Byoncord Development</Forms.FormTitle>
+                <Forms.FormText>Please consider supporting the development of Byoncord by donating to the Vencord developers!!</Forms.FormText>
                 <DonateButton style={{ transform: "translateX(-1em)" }} />
             </div>
             <img

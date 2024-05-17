@@ -63,8 +63,8 @@ export default definePlugin({
     }],
 
     commands: [{
-        name: "vencord-debug",
-        description: "Send Vencord Debug info",
+        name: "byoncord-debug",
+        description: "Send Byoncord Debug info",
         predicate: ctx => AllowedChannelIds.includes(ctx.channel.id),
         async execute() {
             const { RELEASE_CHANNEL } = window.GLOBAL_ENV;
@@ -119,7 +119,7 @@ ${makeCodeblock(enabledPlugins.join(", "))}
                 return Alerts.show({
                     title: "Hold on!",
                     body: <div>
-                        <Forms.FormText>You are using an outdated version of Vencord! Chances are, your issue is already fixed.</Forms.FormText>
+                        <Forms.FormText>You are using an outdated version of Byoncord! Chances are, your issue is already fixed.</Forms.FormText>
                         <Forms.FormText className={Margins.top8}>
                             Please first update before asking for support!
                         </Forms.FormText>

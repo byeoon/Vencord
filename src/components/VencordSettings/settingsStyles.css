@@ -19,6 +19,7 @@
     flex-grow: 1;
     flex-flow: row wrap;
     margin-bottom: 1em;
+    color: #7b9add;
 }
 
 .vc-settings-donate {
@@ -27,8 +28,9 @@
 }
 
 .vc-settings-card {
-    padding: 1em;
+    padding: 1.5em;
     margin-bottom: 1em;
+    color: #7b9add;
 }
 
 .vc-backup-restore-card {

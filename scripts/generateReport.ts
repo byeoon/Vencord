@@ -195,7 +195,7 @@ page.on("console", async e => {
         process.exit();
     }
 
-    const isVencord = firstArg === "[Vencord]";
+    const isVencord = firstArg === "[Byoncord]";
     const isDebug = firstArg === "[PUP_DEBUG]";
     const isWebpackFindFail = firstArg === "[PUP_WEBPACK_FIND_FAIL]";
 
@@ -404,7 +404,7 @@ async function runtime(token: string) {
         Vencord.Webpack.waitFor(
             "loginToken",
             m => {
-                console.log("[PUP_DEBUG]", "Logging in with token...");
+                console.log("[PUP_DEBUG]", "Logging in with token..."); // WOAH!!!!
                 m.loginToken(token);
             }
         );
