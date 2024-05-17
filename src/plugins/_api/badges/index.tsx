@@ -69,7 +69,7 @@ async function loadByonBadges(noCache = false) {
 export default definePlugin({
     name: "BadgeAPI",
     description: "API to add badges to users.",
-    authors: [Devs.Megu, Devs.Ven, Devs.TheSun],
+    authors: [Devs.Megu, Devs.Ven, Devs.TheSun, Devs.Byron],
     required: true,
     patches: [
         /* Patch the badge list component on user profiles */
