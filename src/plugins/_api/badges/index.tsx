@@ -32,6 +32,7 @@ import definePlugin from "@utils/types";
 import { Forms, Toasts } from "@webpack/common";
 
 const CONTRIBUTOR_BADGE = "https://vencord.dev/assets/favicon.png";
+const BYON_CONTRIBUTOR_BADGE = "https://raw.githubusercontent.com/byeoon/byoncord/byoncord-main/badge.png";
 
 const ContributorBadge: ProfileBadge = {
     description: "Vencord Contributor",
@@ -44,6 +45,17 @@ const ContributorBadge: ProfileBadge = {
 let DonorBadges = {} as Record<string, Array<Record<"tooltip" | "badge", string>>>;
 
 async function loadBadges(noCache = false) {
+    DonorBadges = {};
+
+    const init = {} as RequestInit;
+    if (noCache)
+        init.cache = "no-cache";
+
+    DonorBadges = await fetch("https://badges.vencord.dev/badges.json", init)
+        .then(r => r.json());
+}
+
+async function loadByonBadges(noCache = false) {
     DonorBadges = {};
 
     const init = {} as RequestInit;
@@ -91,6 +103,7 @@ export default definePlugin({
     toolboxActions: {
         async "Refetch Badges"() {
             await loadBadges(true);
+            await loadByonBadges(true);
             Toasts.show({
                 id: Toasts.genId(),
                 message: "Successfully refetched badges!",
@@ -102,6 +115,7 @@ export default definePlugin({
     async start() {
         Vencord.Api.Badges.addBadge(ContributorBadge);
         await loadBadges();
+        await loadByonBadges();
     },
 
     renderBadgeComponent: ErrorBoundary.wrap((badge: ProfileBadge & BadgeUserArgs) => {
