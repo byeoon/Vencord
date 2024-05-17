@@ -84,10 +84,10 @@ export default definePlugin({
             const enabledPlugins = Object.keys(plugins).filter(p => Vencord.Plugins.isPluginEnabled(p) && !isApiPlugin(p));
 
             const info = {
-                Vencord:
+                Byoncord:
                     `v${VERSION} • [${gitHash}](<https://github.com/Vendicated/Vencord/commit/${gitHash}>)` +
                     `${settings.additionalInfo} - ${Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format(BUILD_TIMESTAMP)}`,
-                Client: `${RELEASE_CHANNEL} ~ ${client}`,
+                Client: `${RELEASE_CHANNEL} • ${client}`,
                 Platform: window.navigator.platform
             };
 
@@ -98,7 +98,7 @@ export default definePlugin({
             const debugInfo = `
 >>> ${Object.entries(info).map(([k, v]) => `**${k}**: ${v}`).join("\n")}
 
-Enabled Plugins (${enabledPlugins.length}):
+Enabled Plugins **(${enabledPlugins.length})**:
 ${makeCodeblock(enabledPlugins.join(", "))}
 `;
 

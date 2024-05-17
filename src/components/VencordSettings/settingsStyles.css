@@ -2,6 +2,7 @@
     margin-top: 20px;
     margin-bottom: 10px;
     border-bottom: 2px solid var(--background-modifier-accent);
+    color: #7b9add;
 }
 
 .vc-settings-tab-bar-item {
@@ -25,6 +26,7 @@
 .vc-settings-donate {
     display: flex;
     flex-direction: row;
+    color: #7b9add;
 }
 
 .vc-settings-card {
@@ -37,6 +39,7 @@
     background-color: var(--info-warning-background);
     border-color: var(--info-warning-foreground);
     color: var(--info-warning-text);
+    color: #7b9add;
 }
 
 .vc-settings-theme-links {
