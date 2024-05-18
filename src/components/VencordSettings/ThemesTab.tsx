@@ -203,8 +203,8 @@ function ThemesTab() {
             <>
                 <Card className="vc-settings-card">
                     <Forms.FormTitle tag="h5">Find Themes:</Forms.FormTitle>
-                    <div style={{ marginBottom: ".5em", display: "flex", flexDirection: "column" }}>
-                        <Link style={{ marginRight: ".5em" }} href="https://betterdiscord.app/themes">
+                    <div style={{ marginBottom: ".7em", display: "flex", flexDirection: "column" }}>
+                        <Link style={{ marginRight: ".7em" }} href="https://betterdiscord.app/themes">
                             BetterDiscord Themes
                         </Link>
                         <Link href="https://github.com/search?q=discord+theme">GitHub</Link>
@@ -244,13 +244,6 @@ function ThemesTab() {
                             >
                                 Load missing Themes
                             </Button>
-                            <Button
-                                onClick={() => VencordNative.quickCss.openEditor()}
-                                size={Button.Sizes.SMALL}
-                            >
-                                Edit QuickCSS
-                            </Button>
-
                             {Vencord.Settings.plugins.ClientTheme.enabled && (
                                 <Button
                                     onClick={() => openModal(modalProps => (

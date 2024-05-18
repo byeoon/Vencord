@@ -76,8 +76,8 @@ function ReloadRequiredCard({ required }: { required: boolean; }) {
             ) : (
                 <>
                     <Forms.FormTitle tag="h5">Plugin Management</Forms.FormTitle>
-                    <Forms.FormText>Press the cog wheel or info icon to get more info on a plugin</Forms.FormText>
-                    <Forms.FormText>Plugins with a cog wheel have settings you can modify!</Forms.FormText>
+                    <Forms.FormText>Press the cog wheel or info icon to get more info on a plugin
+                        Plugins with a cog wheel have settings you can modify!</Forms.FormText>
                 </>
             )}
         </Card>
@@ -174,7 +174,8 @@ const enum SearchStatus {
     ALL,
     ENABLED,
     DISABLED,
-    NEW
+    NEW,
+    API
 }
 
 export default function PluginSettings() {
@@ -271,7 +272,7 @@ export default function PluginSettings() {
 
             if (isRequired) {
                 const tooltipText = p.required
-                    ? "This plugin is required for Vencord to function."
+                    ? "This plugin is required for Byoncord to function."
                     : makeDependencyList(depMap[p.name]?.filter(d => settings.plugins[d].enabled));
 
                 requiredPlugins.push(
@@ -320,7 +321,8 @@ export default function PluginSettings() {
                             { label: "Show All", value: SearchStatus.ALL, default: true },
                             { label: "Show Enabled", value: SearchStatus.ENABLED },
                             { label: "Show Disabled", value: SearchStatus.DISABLED },
-                            { label: "Show New", value: SearchStatus.NEW }
+                            { label: "Show New", value: SearchStatus.NEW },
+                            { label: "Show APIs", value: SearchStatus.API }
                         ]}
                         serialize={String}
                         select={onStatusChange}
