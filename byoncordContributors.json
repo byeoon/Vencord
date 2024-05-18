@@ -3,10 +3,6 @@
         {
             "tooltip": "shiggy wiggy!!!!!!!!!!!!!!!!!",
             "badge": "https://badges.vencord.dev/badges/343383572805058560/8-95d023a752f079b1aa38d1d0fec828bae5d1d4bd.gif"
-        },
-        {
-            "tooltip": "Byoncord Contributor",
-            "badge": "https://raw.githubusercontent.com/byeoon/byoncord/byoncord-main/altBadge.png"
         }
     ],
     "829676025713655820": [
@@ -19,6 +15,12 @@
         {
             "tooltip": "HOLY GYATTAMOLE!!",
             "badge": "https://cdn.discordapp.com/emojis/1238537686038478868.webp?size=128&quality=lossless"
+        }
+    ],
+    "734079736615141426": [
+        {
+            "tooltip": "konata",
+            "badge": "https://cdn.discordapp.com/emojis/1239349635672313897.gif?size=128&quality=lossless"
         }
     ]
 }

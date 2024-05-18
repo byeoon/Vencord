@@ -201,6 +201,7 @@ function ThemesTab() {
     function renderLocalThemes() {
         return (
             <>
+                <br></br>
                 <Card className="vc-settings-card">
                     <Forms.FormTitle tag="h5">Find Themes:</Forms.FormTitle>
                     <div style={{ marginBottom: ".7em", display: "flex", flexDirection: "column" }}>
@@ -260,6 +261,7 @@ function ThemesTab() {
                             )}
                         </>
                     </Card>
+
 
                     <div className={cl("grid")}>
                         {userThemes?.map(theme => (
