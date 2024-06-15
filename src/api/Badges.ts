@@ -81,7 +81,7 @@ export function _getBadges(args: BadgeUserArgs) {
     const donorBadges = (Plugins.BadgeAPI as unknown as typeof import("../plugins/_api/badges").default).getDonorBadges(args.userId);
     if (donorBadges) badges.unshift(...donorBadges);
 
-    const donorBadgesByon = (Plugins.BadgeAPI as unknown as typeof import("../plugins/_api/badges").default).getByonCustomBadges(args.user.id);
+    const donorBadgesByon = (Plugins.BadgeAPI as unknown as typeof import("../plugins/_api/badges").default).getByonCustomBadges(args.userId);
     if (donorBadgesByon) badges.unshift(...donorBadgesByon);
 
     return badges;
