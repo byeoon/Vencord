@@ -65,7 +65,7 @@ export default definePlugin({
     commands: [{
         name: "byoncord-debug",
         description: "Send Byoncord Debug info",
-        predicate: ctx => AllowedChannelIds.includes(ctx.channel.id),
+        predicate: ctx => isPluginDev(UserStore.getCurrentUser()?.id) || AllowedChannelIds.includes(ctx.channel.id),
         async execute() {
             const { RELEASE_CHANNEL } = window.GLOBAL_ENV;
 

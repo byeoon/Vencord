@@ -18,18 +18,20 @@
 
 import "./fixBadgeOverflow.css";
 
-import { BadgePosition, BadgeUserArgs, ProfileBadge } from "@api/Badges";
+import { _getBadges, BadgePosition, BadgeUserArgs, ProfileBadge } from "@api/Badges";
 import DonateButton from "@components/DonateButton";
 import ErrorBoundary from "@components/ErrorBoundary";
 import { Flex } from "@components/Flex";
 import { Heart } from "@components/Heart";
 import { openContributorModal } from "@components/PluginSettings/ContributorModal";
 import { Devs } from "@utils/constants";
+import { Logger } from "@utils/Logger";
 import { Margins } from "@utils/margins";
 import { isPluginDev } from "@utils/misc";
 import { closeModal, Modals, openModal } from "@utils/modal";
 import definePlugin from "@utils/types";
-import { Forms, Toasts } from "@webpack/common";
+import { Forms, Toasts, UserStore } from "@webpack/common";
+import { User } from "discord-types/general";
 
 const CONTRIBUTOR_BADGE = "https://vencord.dev/assets/favicon.png";
 const BYON_CONTRIBUTOR_BADGE = "https://raw.githubusercontent.com/byeoon/byoncord/byoncord-main/badge.png";
@@ -38,8 +40,8 @@ const ContributorBadge: ProfileBadge = {
     description: "Vencord Contributor",
     image: CONTRIBUTOR_BADGE,
     position: BadgePosition.START,
-    shouldShow: ({ user }) => isPluginDev(user.id),
-    onClick: (_, { user }) => openContributorModal(user)
+    shouldShow: ({ userId }) => isPluginDev(userId),
+    onClick: (_, { userId }) => openContributorModal(UserStore.getUser(userId))
 };
 
 const ContributorBadgeByoncord: ProfileBadge = {
@@ -88,7 +90,7 @@ export default definePlugin({
             replacement: [
                 {
                     match: /&&(\i)\.push\(\{id:"premium".+?\}\);/,
-                    replace: "$&$1.unshift(...Vencord.Api.Badges._getBadges(arguments[0]));",
+                    replace: "$&$1.unshift(...$self.getBadges(arguments[0]));",
                 },
                 {
                     // alt: "", aria-hidden: false, src: originalSrc
@@ -104,7 +106,36 @@ export default definePlugin({
                 // conditionally override their onClick with badge.onClick if it exists
                 {
                     match: /href:(\i)\.link/,
-                    replace: "...($1.onClick && { onClick: vcE => $1.onClick(vcE, arguments[0]) }),$&"
+                    replace: "...($1.onClick && { onClick: vcE => $1.onClick(vcE, $1) }),$&"
+                }
+            ]
+        },
+
+        /* new profiles */
+        {
+            find: ".PANEL]:14",
+            replacement: {
+                match: /(?<=(\i)=\(0,\i\.default\)\(\i\);)return 0===\i.length\?/,
+                replace: "$1.unshift(...$self.getBadges(arguments[0].displayProfile));$&"
+            }
+        },
+        {
+            find: ".description,delay:",
+            replacement: [
+                {
+                    // alt: "", aria-hidden: false, src: originalSrc
+                    match: /alt:" ","aria-hidden":!0,src:(?=.{0,20}(\i)\.icon)/,
+                    // ...badge.props, ..., src: badge.image ?? ...
+                    replace: "...$1.props,$& $1.image??"
+                },
+                {
+                    match: /(?<=text:(\i)\.description,.{0,50})children:/,
+                    replace: "children:$1.component ? $self.renderBadgeComponent({ ...$1 }) :"
+                },
+                // conditionally override their onClick with badge.onClick if it exists
+                {
+                    match: /href:(\i)\.link/,
+                    replace: "...($1.onClick && { onClick: vcE => $1.onClick(vcE, $1) }),$&"
                 }
             ]
         }
@@ -127,6 +158,17 @@ export default definePlugin({
         Vencord.Api.Badges.addBadge(ContributorBadgeByoncord);
         await loadBadges();
         await loadByonBadges();
+    },
+
+    getBadges(props: { userId: string; user?: User; guildId: string; }) {
+        try {
+            props.userId ??= props.user?.id!;
+
+            return _getBadges(props);
+        } catch (e) {
+            new Logger("BadgeAPI#hasBadges").error(e);
+            return [];
+        }
     },
 
     renderBadgeComponent: ErrorBoundary.wrap((badge: ProfileBadge & BadgeUserArgs) => {
